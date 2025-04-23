@@ -1,4 +1,5 @@
-/* pager functionality by Joseph Spainhour" <spainhou@bellsouth.net> */
+//hang person game
+
 #include <ncurses.h>
 #include <stdlib.h>
 
@@ -9,9 +10,9 @@ int main(int argc, char *argv[])
   //cbreak();
 
   const char* wordlist[3];
-  wordlist[0] = "string 1";
-  wordlist[1] = "string 2";
-  wordlist[2] = "string 3";
+  wordlist[0] = "Start";
+  wordlist[1] = "Quit";
+  wordlist[2] = "Word list";
   int choice = 0;
   int highlight = 0;
   int wordlistsize = sizeof(wordlist);
@@ -23,13 +24,13 @@ int main(int argc, char *argv[])
   getmaxyx(stdscr, y, x);
 
   //window test
-  WINDOW* renderwindow = newwin(20, 50, 3, 3);
+  WINDOW* renderwindow = newwin(20, 50, 0, 0);
   box(renderwindow, 0, 0);
   refresh();
   wrefresh(renderwindow);
 
   //create menu window
-  WINDOW* inputwin = newwin(6, x-12, y-8, 5);
+  WINDOW* inputwin = newwin(6, 50, y-8, 0);
   box(inputwin, 0, 0);
   refresh();
   wrefresh(inputwin);
